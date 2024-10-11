@@ -1,0 +1,121 @@
+# projeto1
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Sala de Aula</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .sala {
+      display: flex;
+      flex-wrap: wrap;
+      width: 500px;
+      height: 400px;
+      border: 1px solid black;
+      position: relative;
+      margin: 20px auto;
+    }
+    .carteira {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+    }
+    .carteira:nth-child(5) {
+      background-color: #ffe4b5; /* Destaque para o lugar do menino */
+    }
+    .menino {
+      width: 40px;
+      height: 60px;
+      background-color: #8B4513; /* Pele morena */
+      border-radius: 50%;
+      position: absolute;
+      top: 150px; /* Posição inicial na quinta cadeira */
+      left: 180px;
+      transition: all 1s ease;
+    }
+    .placa {
+      width: 60px;
+      height: 30px;
+      background-color: orange;
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+    .professor {
+      width: 80px;
+      height: 40px;
+      background-color: lightblue;
+      position: absolute;
+      bottom: 20px;
+      left: 200px;
+    }
+    .porta {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100px;
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <div class="sala">
+    <!-- Carteiras -->
+    <div class="carteira">1</div>
+    <div class="carteira">2</div>
+    <div class="carteira">3</div>
+    <div class="carteira">4</div>
+    <div class="carteira">5</div>
+    <div class="carteira">6</div>
+    <div class="carteira">7</div>
+    <div class="carteira">8</div>
+
+    <!-- Menino -->
+    <div class="menino" id="menino"></div>
+
+    <!-- Placa Laranja -->
+    <div class="placa" id="placa"></div>
+
+    <!-- Porta -->
+    <div class="porta"></div>
+
+    <!-- Mesa do professor -->
+    <div class="professor"></div>
+  </div>
+
+  <script>
+    // Animação do menino se levantando, pegando a placa e voltando
+    document.addEventListener('DOMContentLoaded', function () {
+      const menino = document.getElementById('menino');
+      const placa = document.getElementById('placa');
+
+      // Tempo para o menino levantar e ir até a placa
+      setTimeout(() => {
+        menino.style.top = '20px'; // Vai até a placa
+        menino.style.left = '10px';
+      }, 1000);
+
+      // Tempo para pegar a placa e levar até a mesa do professor
+      setTimeout(() => {
+        placa.style.top = '350px'; // Coloca a placa na mesa do professor
+        placa.style.left = '240px';
+      }, 3000);
+
+      // Tempo para o menino voltar ao seu lugar
+      setTimeout(() => {
+        menino.style.top = '150px'; // Volta para a quinta carteira
+        menino.style.left = '180px';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
